@@ -178,20 +178,20 @@
   const PHASES = [
     {
       id: "inhale",
-      label: "Expand",
-      status: "As the tide. As the dawn.",
+      label: "Gather",
+      status: "Draw the night gently in.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Still",
-      status: "The hinge between every turning.",
+      label: "Belong",
+      status: "You are already enough here.",
       ms: 1600,
     },
     {
       id: "exhale",
-      label: "Return",
-      status: "What rises comes home.",
+      label: "Release",
+      status: "Let the hurry leave with the breath.",
       ms: 5000,
     },
   ];
@@ -219,8 +219,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "The wheel has turned. You were inside it."
-        : "Paused. The pattern waits without hurry.";
+        ? "Three breaths. You came back to yourself."
+        : "Paused. The quiet will keep your place.";
     if (orb) orb.style.transform = "";
   };
 
@@ -258,7 +258,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest. Cycles forgive delay.";
+    status.textContent = "Rest. Wonder waits without hurry.";
   };
 
   toggle.addEventListener("click", () => {
