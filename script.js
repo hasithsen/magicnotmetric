@@ -11,10 +11,12 @@
     const ctx = canvas.getContext("2d");
     let stars = [];
     let motes = [];
+    let meteors = [];
     let width = 0;
     let height = 0;
     let raf = 0;
     let last = 0;
+    let meteorTimer = 0;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -26,50 +28,77 @@
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const starCount = Math.floor((width * height) / 12000);
+      const starCount = Math.floor((width * height) / 7000);
       stars = Array.from({ length: starCount }, () => {
-        const bright = Math.random() > 0.92;
+        const bright = Math.random() > 0.86;
         return {
           x: Math.random() * width,
-          y: Math.random() * height * 0.72,
-          r: bright ? Math.random() * 1.6 + 0.8 : Math.random() * 1.1 + 0.2,
-          a: bright ? Math.random() * 0.35 + 0.55 : Math.random() * 0.45 + 0.15,
+          y: Math.random() * height * 0.82,
+          r: bright ? Math.random() * 2.1 + 1 : Math.random() * 1.4 + 0.35,
+          a: bright ? Math.random() * 0.3 + 0.7 : Math.random() * 0.45 + 0.35,
           tw: Math.random() * Math.PI * 2,
-          sp: Math.random() * 0.55 + 0.12,
-          drift: Math.random() * 0.06 + 0.015,
+          sp: Math.random() * 0.9 + 0.25,
+          drift: Math.random() * 0.1 + 0.03,
+          glow: bright,
         };
       });
 
-      motes = Array.from({ length: Math.floor(width / 45) }, () => ({
+      motes = Array.from({ length: Math.floor(width / 28) }, () => ({
         x: Math.random() * width,
-        y: height * (0.55 + Math.random() * 0.35),
-        r: Math.random() * 1.4 + 0.4,
-        a: Math.random() * 0.12 + 0.04,
-        vx: Math.random() * 12 + 6,
-        vy: (Math.random() - 0.5) * 3,
+        y: height * (0.48 + Math.random() * 0.42),
+        r: Math.random() * 2.2 + 0.6,
+        a: Math.random() * 0.22 + 0.08,
+        vx: Math.random() * 18 + 10,
+        vy: (Math.random() - 0.5) * 5,
       }));
+    };
+
+    const spawnMeteor = () => {
+      if (reduceMotion) return;
+      meteors.push({
+        x: Math.random() * width * 0.7,
+        y: Math.random() * height * 0.35,
+        len: Math.random() * 90 + 70,
+        speed: Math.random() * 420 + 320,
+        life: 0,
+        max: Math.random() * 0.7 + 0.55,
+        angle: Math.PI / 5 + Math.random() * 0.2,
+      });
     };
 
     const paintBackdrop = () => {
       const g = ctx.createLinearGradient(0, 0, 0, height);
-      g.addColorStop(0, "#1e1830");
-      g.addColorStop(0.45, "#1a1528");
-      g.addColorStop(0.72, "#241c28");
-      g.addColorStop(1, "#2c211c");
+      g.addColorStop(0, "#2a2142");
+      g.addColorStop(0.35, "#1d1730");
+      g.addColorStop(0.65, "#2a1f2c");
+      g.addColorStop(1, "#3a2a1f");
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, width, height);
 
-      // Soft horizon warmth
-      const h = ctx.createRadialGradient(
-        width * 0.5,
-        height * 0.78,
+      const milky = ctx.createRadialGradient(
+        width * 0.55,
+        height * 0.28,
         0,
-        width * 0.5,
-        height * 0.78,
+        width * 0.55,
+        height * 0.28,
         width * 0.55
       );
-      h.addColorStop(0, "rgba(196, 122, 74, 0.22)");
-      h.addColorStop(0.45, "rgba(150, 90, 55, 0.08)");
+      milky.addColorStop(0, "rgba(210, 195, 255, 0.16)");
+      milky.addColorStop(0.45, "rgba(150, 130, 200, 0.06)");
+      milky.addColorStop(1, "transparent");
+      ctx.fillStyle = milky;
+      ctx.fillRect(0, 0, width, height);
+
+      const h = ctx.createRadialGradient(
+        width * 0.5,
+        height * 0.82,
+        0,
+        width * 0.5,
+        height * 0.82,
+        width * 0.65
+      );
+      h.addColorStop(0, "rgba(230, 145, 70, 0.42)");
+      h.addColorStop(0.4, "rgba(180, 100, 50, 0.16)");
       h.addColorStop(1, "transparent");
       ctx.fillStyle = h;
       ctx.fillRect(0, 0, width, height);
@@ -84,31 +113,69 @@
       for (const s of stars) {
         if (!reduceMotion) {
           s.tw += s.sp * dt;
-          s.x += s.drift * dt * 7;
+          s.x += s.drift * dt * 10;
           if (s.x > width + 2) s.x = -2;
         }
 
         const alpha = reduceMotion
           ? s.a
-          : s.a * (0.62 + 0.38 * Math.sin(s.tw));
+          : s.a * (0.55 + 0.45 * Math.sin(s.tw));
+
+        if (s.glow) {
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, 240, 210, ${alpha * 0.22})`;
+          ctx.arc(s.x, s.y, s.r * 3.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
 
         ctx.beginPath();
-        ctx.fillStyle = `rgba(240, 226, 192, ${alpha})`;
+        ctx.fillStyle = `rgba(255, 244, 220, ${alpha})`;
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
       }
 
       if (!reduceMotion) {
-        for (const m of motes) {
-          m.x += m.vx * dt;
-          m.y += m.vy * dt;
-          if (m.x > width + 10) {
-            m.x = -10;
-            m.y = height * (0.55 + Math.random() * 0.35);
+        meteorTimer += dt;
+        if (meteorTimer > 4.5 + Math.random() * 3) {
+          spawnMeteor();
+          meteorTimer = 0;
+        }
+
+        for (let i = meteors.length - 1; i >= 0; i -= 1) {
+          const m = meteors[i];
+          m.life += dt;
+          m.x += Math.cos(m.angle) * m.speed * dt;
+          m.y += Math.sin(m.angle) * m.speed * dt;
+
+          const fade = 1 - m.life / m.max;
+          if (fade <= 0) {
+            meteors.splice(i, 1);
+            continue;
+          }
+
+          const tx = m.x - Math.cos(m.angle) * m.len;
+          const ty = m.y - Math.sin(m.angle) * m.len;
+          const trail = ctx.createLinearGradient(tx, ty, m.x, m.y);
+          trail.addColorStop(0, "rgba(255, 240, 210, 0)");
+          trail.addColorStop(1, `rgba(255, 236, 200, ${0.85 * fade})`);
+          ctx.beginPath();
+          ctx.strokeStyle = trail;
+          ctx.lineWidth = 1.6;
+          ctx.moveTo(tx, ty);
+          ctx.lineTo(m.x, m.y);
+          ctx.stroke();
+        }
+
+        for (const mote of motes) {
+          mote.x += mote.vx * dt;
+          mote.y += mote.vy * dt;
+          if (mote.x > width + 12) {
+            mote.x = -12;
+            mote.y = height * (0.48 + Math.random() * 0.42);
           }
           ctx.beginPath();
-          ctx.fillStyle = `rgba(212, 180, 132, ${m.a})`;
-          ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(233, 203, 152, ${mote.a})`;
+          ctx.arc(mote.x, mote.y, mote.r, 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -178,20 +245,20 @@
   const PHASES = [
     {
       id: "inhale",
-      label: "Expand",
-      status: "As the tide. As the dawn.",
+      label: "See",
+      status: "Clear the mind. Name what matters.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Still",
-      status: "The hinge between every turning.",
+      label: "Hold",
+      status: "Steady on duty—people, craft, vow.",
       ms: 1600,
     },
     {
       id: "exhale",
-      label: "Return",
-      status: "What rises comes home.",
+      label: "Move",
+      status: "Carry clarity into the next decisive act.",
       ms: 5000,
     },
   ];
@@ -219,8 +286,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "The wheel has turned. You were inside it."
-        : "Paused. The pattern waits without hurry.";
+        ? "Centered. Return to the field and make it count."
+        : "Paused. Resume when you are ready to advance.";
     if (orb) orb.style.transform = "";
   };
 
@@ -258,7 +325,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest. Cycles forgive delay.";
+    status.textContent = "Rest briefly. Purpose keeps the path lit.";
   };
 
   toggle.addEventListener("click", () => {
