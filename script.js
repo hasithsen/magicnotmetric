@@ -178,20 +178,20 @@
   const PHASES = [
     {
       id: "inhale",
-      label: "Gather",
-      status: "Draw the night gently in.",
+      label: "See",
+      status: "Clear the glass. Find the true bearing.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Belong",
-      status: "You are already enough here.",
+      label: "Steady",
+      status: "Hold what you serve—people, craft, bond.",
       ms: 1600,
     },
     {
       id: "exhale",
-      label: "Release",
-      status: "Let the hurry leave with the breath.",
+      label: "Give",
+      status: "Carry that clarity into the next action.",
       ms: 5000,
     },
   ];
@@ -219,8 +219,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "Three breaths. You came back to yourself."
-        : "Paused. The quiet will keep your place.";
+        ? "Compass set. Go make a wholesome mark."
+        : "Paused. Your flight resumes when ready.";
     if (orb) orb.style.transform = "";
   };
 
@@ -258,7 +258,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest. Wonder waits without hurry.";
+    status.textContent = "Rest briefly. Purpose keeps the runway lit.";
   };
 
   toggle.addEventListener("click", () => {
