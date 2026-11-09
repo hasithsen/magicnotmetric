@@ -1,241 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Magic not Metric — disciplined clarity and courageous action. Understand what is essential so your impact grows."
-    />
-    <meta name="theme-color" content="#100d18" />
-    <meta property="og:title" content="Magic not Metric" />
-    <meta
-      property="og:description"
-      content="Think deeply. Move decisively. Let understanding enlarge the good you do."
-    />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Magic not Metric</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23100d18'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%23f3e6c8'/%3E%3Cpath d='M0 24 Q8 20 16 24 T32 24 V32 H0Z' fill='%23b8955f'/%3E%3C/svg%3E"
-    />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="world" aria-hidden="true">
-      <canvas class="sky" data-sky></canvas>
-      <div class="aurora"></div>
-      <div class="dunes">
-        <svg
-          class="dunes__svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <path
-            class="dunes__far"
-            d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z"
-          />
-          <path
-            class="dunes__near"
-            d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z"
-          />
-        </svg>
-      </div>
-      <div class="grain"></div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Magic not Metric — disciplined clarity and courageous action. Understand what is essential so your impact grows." />
+  <meta name="theme-color" content="#100d18" />
+  <meta property="og:title" content="Magic not Metric" />
+  <meta property="og:description" content="Think deeply. Move decisively. Let understanding enlarge the good you do." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Magic not Metric</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23100d18'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%23f3e6c8'/%3E%3Cpath d='M0 24 Q8 20 16 24 T32 24 V32 H0Z' fill='%23b8955f'/%3E%3C/svg%3E" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="world" aria-hidden="true">
+    <canvas class="sky" data-sky></canvas>
+    <div class="aurora"></div>
+    <div class="dunes">
+      <svg class="dunes__svg" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
+        <path class="dunes__far"
+          d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z" />
+        <path class="dunes__near"
+          d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z" />
+      </svg>
     </div>
+    <div class="grain"></div>
+  </div>
 
-    <header class="site-header">
-      <p class="site-mark">Magic not Metric</p>
-    </header>
+  <header class="site-header">
+    <p class="site-mark">Magic not Metric</p>
+  </header>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-brand">
-        <div class="hero__content">
-          <h1 id="hero-brand" class="hero__brand reveal">
-            Magic <em>not</em> Metric
-          </h1>
-          <p class="hero__line reveal" style="--d: 1">
-            Think deeply. Move decisively.
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-brand">
+      <div class="hero__content">
+        <h1 id="hero-brand" class="hero__brand reveal">
+          Magic <em>not</em> Metric
+        </h1>
+        <p class="hero__line reveal" style="--d: 1">
+          Think deeply. Move decisively.
+        </p>
+        <p class="hero__support reveal" style="--d: 2">
+          Clarity without courage is idle. Courage without clarity is waste.
+          Hold both—and your impact becomes wholesome and large.
+        </p>
+        <a class="hero__cta reveal" style="--d: 3" href="#engage">
+          Enter the work
+        </a>
+      </div>
+    </section>
+
+    <section id="engage" class="section" aria-labelledby="engage-title">
+      <div class="section__inner">
+        <h2 id="engage-title" class="section__title reveal">
+          Understanding is a form of strength.
+        </h2>
+        <div class="section__copy">
+          <p class="reveal" style="--d: 1">
+            A scholar sees the pattern. A warrior commits to the field. The
+            human who holds both does not shrink from difficulty—they meet it
+            with precision.
           </p>
-          <p class="hero__support reveal" style="--d: 2">
-            Clarity without courage is idle. Courage without clarity is waste.
-            Hold both—and your impact becomes wholesome and large.
+          <p class="reveal" style="--d: 2">
+            Metrics can count motion. They cannot tell you what deserves your
+            force. When you know what is essential—people, craft, a living
+            duty—your effort stops scattering and starts landing.
           </p>
-          <a class="hero__cta reveal" style="--d: 3" href="#engage">
-            Enter the work
-          </a>
-        </div>
-      </section>
-
-      <section id="engage" class="section" aria-labelledby="engage-title">
-        <div class="section__inner">
-          <h2 id="engage-title" class="section__title reveal">
-            Understanding is a form of strength.
-          </h2>
-          <div class="section__copy">
-            <p class="reveal" style="--d: 1">
-              A scholar sees the pattern. A warrior commits to the field. The
-              human who holds both does not shrink from difficulty—they meet it
-              with precision.
-            </p>
-            <p class="reveal" style="--d: 2">
-              Metrics can count motion. They cannot tell you what deserves your
-              force. When you know what is essential—people, craft, a living
-              duty—your effort stops scattering and starts landing.
-            </p>
-            <p class="reveal" style="--d: 3">
-              This is enlightened engagement: not withdrawal from the world, but
-              entry with a sharper mind and a steadier hand—so what you build,
-              lead, and defend actually serves.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--laws" aria-labelledby="laws-title">
-        <div class="section__inner">
-          <h2 id="laws-title" class="section__title reveal">
-            Disciplines of greater good.
-          </h2>
-
-          <ol class="laws">
-            <li class="laws__item reveal" style="--d: 1">
-              <span class="laws__index" aria-hidden="true">01</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Own the consequence.</h3>
-                <p class="laws__text">
-                  Power without responsibility is noise. Answer for the work,
-                  the people, and the ripples. Ownership turns output into
-                  integrity.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 2">
-              <span class="laws__index" aria-hidden="true">02</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Rise with others.</h3>
-                <p class="laws__text">
-                  Solo victory is thin. Strengthen a teammate, tell a hard truth
-                  with care, build capacity around you—your reach multiplies
-                  through every life you elevate.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 3">
-              <span class="laws__index" aria-hidden="true">03</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Discern, then strike.</h3>
-                <p class="laws__text">
-                  Reflection is not delay when it aims your next move. See the
-                  essential, choose the worthy fight, then commit fully—mind and
-                  muscle aligned.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 4">
-              <span class="laws__index" aria-hidden="true">04</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Presence is force multiplied.</h3>
-                <p class="laws__text">
-                  Scattered effort looks busy and lands soft. One clear hour of
-                  total attention can outweigh a distracted week. Bring your
-                  whole self—and the good compounds.
-                </p>
-              </div>
-            </li>
-          </ol>
-
-          <p class="section__epigraph reveal" style="--d: 5">
-            Let numbers serve the mission. Never let them command it.
+          <p class="reveal" style="--d: 3">
+            This is enlightened engagement: not withdrawal from the world, but
+            entry with a sharper mind and a steadier hand—so what you build,
+            lead, and defend actually serves.
           </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section--rite" aria-labelledby="rite-title">
-        <div class="section__inner section__inner--center">
-          <h2 id="rite-title" class="section__title reveal">
-            Center, then advance.
-          </h2>
-          <p class="section__lede reveal" style="--d: 1">
-            Three breaths to clear the mind—then return to the field with
-            purpose.
+    <section class="section section--laws" aria-labelledby="laws-title">
+      <div class="section__inner">
+        <h2 id="laws-title" class="section__title reveal">
+          Disciplines of greater good.
+        </h2>
+
+        <ol class="laws">
+          <li class="laws__item reveal" style="--d: 1">
+            <span class="laws__index" aria-hidden="true">01</span>
+            <div class="laws__content">
+              <h3 class="laws__heading">Own the consequence.</h3>
+              <p class="laws__text">
+                Power without responsibility is noise. Answer for the work,
+                the people, and the ripples. Ownership turns output into
+                integrity.
+              </p>
+            </div>
+          </li>
+          <li class="laws__item reveal" style="--d: 2">
+            <span class="laws__index" aria-hidden="true">02</span>
+            <div class="laws__content">
+              <h3 class="laws__heading">Rise with others.</h3>
+              <p class="laws__text">
+                Solo victory is thin. Strengthen a teammate, tell a hard truth
+                with care, build capacity around you—your reach multiplies
+                through every life you elevate.
+              </p>
+            </div>
+          </li>
+          <li class="laws__item reveal" style="--d: 3">
+            <span class="laws__index" aria-hidden="true">03</span>
+            <div class="laws__content">
+              <h3 class="laws__heading">Discern, then strike.</h3>
+              <p class="laws__text">
+                Reflection is not delay when it aims your next move. See the
+                essential, choose the worthy fight, then commit fully—mind and
+                muscle aligned.
+              </p>
+            </div>
+          </li>
+          <li class="laws__item reveal" style="--d: 4">
+            <span class="laws__index" aria-hidden="true">04</span>
+            <div class="laws__content">
+              <h3 class="laws__heading">Presence is force multiplied.</h3>
+              <p class="laws__text">
+                Scattered effort looks busy and lands soft. One clear hour of
+                total attention can outweigh a distracted week. Bring your
+                whole self—and the good compounds.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="section__epigraph reveal" style="--d: 5">
+          Let numbers serve the mission. Never let them command it.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--rite" aria-labelledby="rite-title">
+      <div class="section__inner section__inner--center">
+        <h2 id="rite-title" class="section__title reveal">
+          Center, then advance.
+        </h2>
+        <p class="section__lede reveal" style="--d: 1">
+          Three breaths to clear the mind—then return to the field with
+          purpose.
+        </p>
+
+        <div class="star-rite reveal" style="--d: 2" data-breath role="region" aria-labelledby="rite-title">
+          <button type="button" class="star-rite__btn" data-breath-toggle aria-pressed="false"
+            aria-describedby="rite-status">
+            <span class="star-rite__glow" aria-hidden="true"></span>
+            <span class="star-rite__core" data-breath-orb aria-hidden="true"></span>
+            <span class="star-rite__label" data-breath-label>Begin</span>
+          </button>
+          <p id="rite-status" class="star-rite__status" data-breath-status>
+            Touch the light. Ready your next move.
           </p>
-
-          <div
-            class="star-rite reveal"
-            style="--d: 2"
-            data-breath
-            role="region"
-            aria-labelledby="rite-title"
-          >
-            <button
-              type="button"
-              class="star-rite__btn"
-              data-breath-toggle
-              aria-pressed="false"
-              aria-describedby="rite-status"
-            >
-              <span class="star-rite__glow" aria-hidden="true"></span>
-              <span
-                class="star-rite__core"
-                data-breath-orb
-                aria-hidden="true"
-              ></span>
-              <span class="star-rite__label" data-breath-label>Begin</span>
-            </button>
-            <p
-              id="rite-status"
-              class="star-rite__status"
-              data-breath-status
-            >
-              Touch the light. Ready your next move.
-            </p>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section--close" aria-labelledby="close-title">
-        <div class="section__inner section__inner--center">
-          <h2
-            id="close-title"
-            class="section__title section__title--close reveal"
-          >
-            Meet the world awake.
-          </h2>
-          <p class="section__close-text reveal" style="--d: 1">
-            The magic is not escape. It is disciplined presence: a clear mind, a
-            courageous hand, and the will to leave people and work more whole
-            than you found them.
-          </p>
-        </div>
-      </section>
-    </main>
+    <section class="section section--close" aria-labelledby="close-title">
+      <div class="section__inner section__inner--center">
+        <h2 id="close-title" class="section__title section__title--close reveal">
+          Meet the world awake.
+        </h2>
+        <p class="section__close-text reveal" style="--d: 1">
+          The magic is not escape. It is disciplined presence: a clear mind, a
+          courageous hand, and the will to leave people and work more whole
+          than you found them.
+        </p>
+      </div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <p class="site-footer__brand">
-        Made with care by
-        <a
-          href="https://hasithsen.pages.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          >hsen</a
-        >.
-      </p>
-      <p class="site-footer__credit">
-        Theme inspired by <cite><a href="https://en.wikipedia.org/wiki/Wind,_Sand_and_Stars" target="_blank" rel="noopener noreferrer">Wind, Sand and Stars</a></cite>
-      </p>
-    </footer>
+  <footer class="site-footer">
+    <p class="site-footer__brand">
+      Made with care by
+      <a href="https://hasithsen.pages.dev" target="_blank" rel="noopener noreferrer">hsen</a>.
+    </p>
+    <p class="site-footer__credit">
+      Theme inspired by <cite><a href="https://en.wikipedia.org/wiki/Wind,_Sand_and_Stars" target="_blank"
+          rel="noopener noreferrer">Wind, Sand and Stars</a></cite>
+    </p>
+    <p class="site-footer__brand">
+      <a href="https://github.com/hasithsen/magicnotmetric" target="_blank" rel="noopener noreferrer">View the source on
+        GitHub</a>
+    </p>
+  </footer>
 
-    <script src="script.js" defer></script>
-  </body>
+  <script src="script.js" defer></script>
+</body>
+
 </html>
