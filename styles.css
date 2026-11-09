@@ -276,6 +276,44 @@ main,
   max-width: 28ch;
 }
 
+.laws {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.laws li {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.laws__mark {
+  color: var(--sand);
+  font-size: 0.7rem;
+  line-height: 1.9;
+  opacity: 0.7;
+}
+
+.laws p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.laws strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--sand-bright);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
 /* Star rite */
 
 .rite {

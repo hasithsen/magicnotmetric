@@ -178,20 +178,20 @@
   const PHASES = [
     {
       id: "inhale",
-      label: "Rise",
-      status: "Draw the night into you.",
+      label: "Expand",
+      status: "As the tide. As the dawn.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Keep",
-      status: "What matters needs no proof.",
+      label: "Still",
+      status: "The hinge between every turning.",
       ms: 1600,
     },
     {
       id: "exhale",
-      label: "Soften",
-      status: "Give the wind what it asks.",
+      label: "Return",
+      status: "What rises comes home.",
       ms: 5000,
     },
   ];
@@ -208,7 +208,7 @@
 
   const isStartLabel = () => {
     const t = label.textContent;
-    return t === "Look" || t === "Again";
+    return t === "Begin" || t === "Again";
   };
 
   const finish = () => {
@@ -219,8 +219,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "Enough. The star remembers you."
-        : "Paused. The desert keeps your place.";
+        ? "The wheel has turned. You were inside it."
+        : "Paused. The pattern waits without hurry.";
     if (orb) orb.style.transform = "";
   };
 
@@ -258,7 +258,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest. Continue when ready.";
+    status.textContent = "Rest. Cycles forgive delay.";
   };
 
   toggle.addEventListener("click", () => {
