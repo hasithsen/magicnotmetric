@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Magic not Metric — a quiet place to remember that a life is more than what can be counted."
+      content="Magic not Metric — a spare, luminous reminder that what matters most cannot be counted."
     />
-    <meta name="theme-color" content="#0c121c" />
+    <meta name="theme-color" content="#1a1528" />
     <meta property="og:title" content="Magic not Metric" />
     <meta
       property="og:description"
-      content="Between the measured day and the open night, something human still waits."
+      content="See with the heart. Leave something uncounted."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -19,20 +19,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230c121c'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23e8d9b8'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1528'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%23f0e2c0'/%3E%3Cpath d='M0 24 Q8 20 16 24 T32 24 V32 H0Z' fill='%23b8956a'/%3E%3C/svg%3E"
     />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <canvas class="sky" aria-hidden="true" data-sky></canvas>
-    <div class="haze" aria-hidden="true"></div>
+    <div class="world" aria-hidden="true">
+      <canvas class="sky" data-sky></canvas>
+      <div class="aurora"></div>
+      <div class="dunes">
+        <svg class="dunes__svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path class="dunes__far" d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z" />
+          <path class="dunes__near" d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z" />
+        </svg>
+      </div>
+      <div class="grain"></div>
+    </div>
 
     <header class="site-header">
       <p class="site-mark">Magic not Metric</p>
@@ -40,68 +49,81 @@
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-brand">
-        <div class="hero__ground" aria-hidden="true"></div>
         <div class="hero__content">
           <h1 id="hero-brand" class="hero__brand reveal">
             Magic <em>not</em> Metric
           </h1>
           <p class="hero__line reveal" style="--d: 1">
-            Remember you are human.
+            See with the heart.
           </p>
-          <a class="hero__link reveal" style="--d: 2" href="#still">
-            Enter the quiet
+          <a class="hero__cta reveal" style="--d: 2" href="#essence">
+            Begin the descent
           </a>
         </div>
       </section>
 
-      <section id="still" class="still" aria-labelledby="still-title">
-        <div class="still__inner">
-          <h2 id="still-title" class="still__title reveal">
-            The measured life forgets the wind.
+      <section id="essence" class="passage" aria-labelledby="essence-title">
+        <div class="passage__inner">
+          <h2 id="essence-title" class="passage__title reveal">
+            The world will ask you to count.
           </h2>
-          <p class="still__text reveal" style="--d: 1">
-            We trade wonder for proof. Hours become units. Breath becomes
-            output. The body continues; the soul grows thin.
+          <p class="passage__text reveal" style="--d: 1">
+            How many hours. How much progress. How far ahead.
+            It will call this seriousness—and leave you strangely empty,
+            as if you had flown all night and forgotten the stars.
           </p>
-          <p class="still__text reveal" style="--d: 2">
-            And yet—above the noise, the night is still wide. Sand still holds
-            heat. A single star still asks nothing of you but to look.
-          </p>
-          <p class="still__text still__text--soft reveal" style="--d: 3">
-            Balance is not a score. It is the courage to remain alive inside
-            your own life.
+          <p class="passage__text reveal" style="--d: 2">
+            Grown minds love numbers. Living ones love what numbers cannot hold:
+            a sudden laugh, a loyal silence, the gold edge of evening on the sand.
           </p>
         </div>
       </section>
 
-      <section class="breath-section" aria-labelledby="breath-title">
-        <div class="breath-section__inner">
-          <h2 id="breath-title" class="breath-section__title reveal">
-            One breath under open sky.
+      <section class="passage passage--soft" aria-labelledby="well-title">
+        <div class="passage__inner">
+          <h2 id="well-title" class="passage__title reveal">
+            What is essential is invisible.
           </h2>
-          <p class="breath-section__lede reveal" style="--d: 1">
-            No streak. No total. Only returning.
+          <p class="passage__text reveal" style="--d: 1">
+            Beneath the dry expanse, a well still waits.
+            Above it, one star may become yours—not because you measured it,
+            but because you stayed long enough to care.
+          </p>
+          <p class="passage__epigraph reveal" style="--d: 2">
+            Balance is that staying. Not a score. A vow to remain human.
+          </p>
+        </div>
+      </section>
+
+      <section class="rite" aria-labelledby="rite-title">
+        <div class="rite__inner">
+          <h2 id="rite-title" class="rite__title reveal">
+            Sit with one star.
+          </h2>
+          <p class="rite__lede reveal" style="--d: 1">
+            Three breaths. No ledger. Only light.
           </p>
 
           <div
-            class="star-breath reveal"
+            class="star-rite reveal"
             style="--d: 2"
             data-breath
             role="region"
-            aria-labelledby="breath-title"
+            aria-labelledby="rite-title"
           >
             <button
               type="button"
-              class="star-breath__orb"
+              class="star-rite__btn"
               data-breath-toggle
               aria-pressed="false"
-              aria-describedby="breath-status"
+              aria-describedby="rite-status"
             >
-              <span class="star-breath__core" data-breath-orb aria-hidden="true"></span>
-              <span class="star-breath__label" data-breath-label>Begin</span>
+              <span class="star-rite__glow" aria-hidden="true"></span>
+              <span class="star-rite__core" data-breath-orb aria-hidden="true"></span>
+              <span class="star-rite__label" data-breath-label>Look</span>
             </button>
-            <p id="breath-status" class="star-breath__status" data-breath-status>
-              Press the light. Follow it home.
+            <p id="rite-status" class="star-rite__status" data-breath-status>
+              Touch the light when you are ready.
             </p>
           </div>
         </div>
@@ -110,10 +132,11 @@
       <section class="close" aria-labelledby="close-title">
         <div class="close__inner">
           <h2 id="close-title" class="close__title reveal">
-            What you seek is already breathing with you.
+            You are not a sum.
           </h2>
           <p class="close__text reveal" style="--d: 1">
-            Go gently. Leave something uncounted.
+            You are a traveler beneath an endless roof of quiet fire.
+            Go gently—and leave something wild uncounted.
           </p>
         </div>
       </section>
