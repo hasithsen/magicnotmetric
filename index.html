@@ -5,196 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Magic not Metric — a quiet reminder to balance life, reclaim presence, and stay human in a world that counts everything."
+      content="Magic not Metric — a quiet place to remember that a life is more than what can be counted."
     />
-    <meta name="theme-color" content="#1e2a24" />
+    <meta name="theme-color" content="#0c121c" />
     <meta property="og:title" content="Magic not Metric" />
     <meta
       property="og:description"
-      content="When everything is measured, something essential goes quiet. Balance is how you hear it again."
+      content="Between the measured day and the open night, something human still waits."
     />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Magic not Metric — Balance Life</title>
+    <title>Magic not Metric</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Figtree:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%233d6b5a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23eef3f0'/%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230c121c'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23e8d9b8'/%3E%3C/svg%3E"
+    />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <canvas class="sky" aria-hidden="true" data-sky></canvas>
+    <div class="haze" aria-hidden="true"></div>
+
     <header class="site-header">
-      <p class="site-mark" aria-hidden="true">MnM</p>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#drift">The drift</a>
-        <a href="#balance">Balance</a>
-        <a href="#return">Return</a>
-      </nav>
+      <p class="site-mark">Magic not Metric</p>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-brand">
-        <div class="hero__media" aria-hidden="true">
-          <img
-            class="hero__image"
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=80"
-            alt=""
-            width="2400"
-            height="1600"
-            fetchpriority="high"
-          />
-          <div class="hero__veil"></div>
-        </div>
-
+        <div class="hero__ground" aria-hidden="true"></div>
         <div class="hero__content">
           <h1 id="hero-brand" class="hero__brand reveal">
-            Magic <span>not</span> Metric
+            Magic <em>not</em> Metric
           </h1>
-          <p class="hero__headline reveal" style="--d: 1">
-            Stay human on purpose.
+          <p class="hero__line reveal" style="--d: 1">
+            Remember you are human.
           </p>
-          <p class="hero__lede reveal" style="--d: 2">
-            When life becomes a ledger, presence thins. Balance is how wonder
-            finds its way back in.
-          </p>
-          <div class="hero__actions reveal" style="--d: 3">
-            <a class="btn btn--primary" href="#balance">Reclaim a breath</a>
-            <a class="btn btn--ghost" href="#drift">See the drift</a>
-          </div>
+          <a class="hero__link reveal" style="--d: 2" href="#still">
+            Enter the quiet
+          </a>
         </div>
       </section>
 
-      <section id="drift" class="section section--drift" aria-labelledby="drift-title">
-        <div class="section__inner">
-          <p class="eyebrow reveal">The quiet cost</p>
-          <h2 id="drift-title" class="section__title reveal" style="--d: 1">
-            Optimized into emptiness.
+      <section id="still" class="still" aria-labelledby="still-title">
+        <div class="still__inner">
+          <h2 id="still-title" class="still__title reveal">
+            The measured life forgets the wind.
           </h2>
-          <p class="section__text reveal" style="--d: 2">
-            Days fill with targets, streaks, and scores. The body keeps time.
-            The spirit clocks out. You can move through every hour and still
-            miss the hour you are in.
+          <p class="still__text reveal" style="--d: 1">
+            We trade wonder for proof. Hours become units. Breath becomes
+            output. The body continues; the soul grows thin.
+          </p>
+          <p class="still__text reveal" style="--d: 2">
+            And yet—above the noise, the night is still wide. Sand still holds
+            heat. A single star still asks nothing of you but to look.
+          </p>
+          <p class="still__text still__text--soft reveal" style="--d: 3">
+            Balance is not a score. It is the courage to remain alive inside
+            your own life.
           </p>
         </div>
       </section>
 
-      <section
-        id="balance"
-        class="section section--balance"
-        aria-labelledby="balance-title"
-      >
-        <div class="section__inner section__inner--wide">
-          <div class="balance__intro">
-            <p class="eyebrow reveal">A living practice</p>
-            <h2 id="balance-title" class="section__title reveal" style="--d: 1">
-              Balance is not a number.
-            </h2>
-            <p class="section__text reveal" style="--d: 2">
-              It is the choice to feel again—to trade a little efficiency for a
-              little awe, and remember that the cosmos you chase is already
-              breathing with you.
-            </p>
-          </div>
+      <section class="breath-section" aria-labelledby="breath-title">
+        <div class="breath-section__inner">
+          <h2 id="breath-title" class="breath-section__title reveal">
+            One breath under open sky.
+          </h2>
+          <p class="breath-section__lede reveal" style="--d: 1">
+            No streak. No total. Only returning.
+          </p>
 
           <div
-            class="breath reveal"
-            style="--d: 3"
+            class="star-breath reveal"
+            style="--d: 2"
             data-breath
             role="region"
             aria-labelledby="breath-title"
           >
-            <div class="breath__orb-wrap" aria-hidden="true">
-              <div class="breath__orb" data-breath-orb></div>
-            </div>
-            <div class="breath__copy">
-              <h3 id="breath-title" class="breath__title">One honest breath</h3>
-              <p class="breath__status" data-breath-status>
-                Press start. Follow the circle. Come back to yourself.
-              </p>
-              <p class="breath__cycle" data-breath-cycle aria-live="polite">
-                Ready
-              </p>
-              <div class="breath__controls">
-                <button type="button" class="btn btn--primary" data-breath-toggle>
-                  Start
-                </button>
-                <button
-                  type="button"
-                  class="btn btn--ghost"
-                  data-breath-reset
-                  hidden
-                >
-                  Reset
-                </button>
-              </div>
-            </div>
+            <button
+              type="button"
+              class="star-breath__orb"
+              data-breath-toggle
+              aria-pressed="false"
+              aria-describedby="breath-status"
+            >
+              <span class="star-breath__core" data-breath-orb aria-hidden="true"></span>
+              <span class="star-breath__label" data-breath-label>Begin</span>
+            </button>
+            <p id="breath-status" class="star-breath__status" data-breath-status>
+              Press the light. Follow it home.
+            </p>
           </div>
         </div>
       </section>
 
-      <section id="return" class="section section--return" aria-labelledby="return-title">
-        <div class="section__inner">
-          <p class="eyebrow reveal">Ways back</p>
-          <h2 id="return-title" class="section__title reveal" style="--d: 1">
-            Small acts of being alive.
-          </h2>
-          <ul class="return-list">
-            <li class="reveal" style="--d: 1">
-              <span class="return-list__label">Look up</span>
-              <span class="return-list__text"
-                >Leave the screen. Meet the sky, a tree, another face.</span
-              >
-            </li>
-            <li class="reveal" style="--d: 2">
-              <span class="return-list__label">Protect unmeasured time</span>
-              <span class="return-list__text"
-                >Walk without a podcast. Cook without a timer. Let minutes be
-                soft.</span
-              >
-            </li>
-            <li class="reveal" style="--d: 3">
-              <span class="return-list__label">Feel before you track</span>
-              <span class="return-list__text"
-                >Ask how you are, not how you performed. Start there.</span
-              >
-            </li>
-            <li class="reveal" style="--d: 4">
-              <span class="return-list__label">Keep a private wonder</span>
-              <span class="return-list__text"
-                >A sketch, a song, a silly ritual—something that refuses a
-                KPI.</span
-              >
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section section--close" aria-labelledby="close-title">
-        <div class="section__inner section__inner--center">
+      <section class="close" aria-labelledby="close-title">
+        <div class="close__inner">
           <h2 id="close-title" class="close__title reveal">
-            The life you want is still within reach.
+            What you seek is already breathing with you.
           </h2>
           <p class="close__text reveal" style="--d: 1">
-            Not louder. Not faster. Just more yours—breath by breath, choice by
-            choice.
+            Go gently. Leave something uncounted.
           </p>
-          <a class="btn btn--primary reveal" style="--d: 2" href="#balance"
-            >Begin again</a
-          >
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p class="site-footer__brand">Magic not Metric</p>
-      <p class="site-footer__note">
-        A reminder to balance life—and stay human while you do.
-      </p>
+      <p>Magic not Metric</p>
     </footer>
 
     <script src="script.js" defer></script>

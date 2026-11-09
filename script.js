@@ -5,7 +5,99 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
-  /* ---- Scroll reveals ---- */
+  /* ---- Starfield ---- */
+  const canvas = document.querySelector("[data-sky]");
+  if (canvas && canvas.getContext) {
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+    let width = 0;
+    let height = 0;
+    let raf = 0;
+    let last = 0;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const count = Math.floor((width * height) / 14000);
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height * 0.78,
+        r: Math.random() * 1.2 + 0.2,
+        a: Math.random() * 0.55 + 0.15,
+        tw: Math.random() * Math.PI * 2,
+        sp: Math.random() * 0.4 + 0.15,
+        drift: Math.random() * 0.08 + 0.02,
+      }));
+    };
+
+    const draw = (t) => {
+      const now = t || 0;
+      const dt = last ? Math.min((now - last) / 1000, 0.05) : 0.016;
+      last = now;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Deep night wash
+      const g = ctx.createLinearGradient(0, 0, 0, height);
+      g.addColorStop(0, "#10182a");
+      g.addColorStop(0.55, "#0c121c");
+      g.addColorStop(1, "#0a0e16");
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, width, height);
+
+      for (const s of stars) {
+        s.tw += s.sp * dt;
+        s.x += s.drift * dt * 8;
+        if (s.x > width + 2) s.x = -2;
+
+        const alpha = s.a * (0.65 + 0.35 * Math.sin(s.tw));
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(232, 217, 184, ${alpha})`;
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      if (!reduceMotion) {
+        raf = requestAnimationFrame(draw);
+      }
+    };
+
+    resize();
+    draw(0);
+
+    if (reduceMotion) {
+      // Static sky only
+    } else {
+      raf = requestAnimationFrame(draw);
+    }
+
+    let resizeTimer = 0;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        resize();
+        if (reduceMotion) draw(0);
+      }, 120);
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+        last = 0;
+      } else if (!reduceMotion) {
+        raf = requestAnimationFrame(draw);
+      }
+    });
+  }
+
+  /* ---- Reveals ---- */
   const revealEls = document.querySelectorAll(".reveal");
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
@@ -20,12 +112,11 @@
           }
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
     );
 
     revealEls.forEach((el) => observer.observe(el));
 
-    // Hero should animate in on load without waiting for scroll.
     requestAnimationFrame(() => {
       document
         .querySelectorAll(".hero .reveal")
@@ -33,87 +124,79 @@
     });
   }
 
-  /* ---- Breath practice ---- */
+  /* ---- Breath ---- */
   const root = document.querySelector("[data-breath]");
   if (!root) return;
 
-  const orb = root.querySelector("[data-breath-orb]");
-  const status = root.querySelector("[data-breath-status]");
-  const cycle = root.querySelector("[data-breath-cycle]");
   const toggle = root.querySelector("[data-breath-toggle]");
-  const reset = root.querySelector("[data-breath-reset]");
+  const label = root.querySelector("[data-breath-label]");
+  const status = root.querySelector("[data-breath-status]");
+  const orb = root.querySelector("[data-breath-orb]");
 
   const PHASES = [
     {
       id: "inhale",
-      label: "Inhale",
-      status: "Draw the world in. Soft belly, quiet mind.",
+      label: "Rise",
+      status: "Draw the night in.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Hold",
-      status: "Stay with yourself. Nothing to optimize here.",
-      ms: 1500,
+      label: "Still",
+      status: "Nothing to measure here.",
+      ms: 1600,
     },
     {
       id: "exhale",
-      label: "Exhale",
-      status: "Release the metric. Keep the magic.",
+      label: "Settle",
+      status: "Give the wind what it asks.",
       ms: 5000,
     },
   ];
 
   let running = false;
   let phaseIndex = 0;
-  let cyclesCompleted = 0;
+  let cycles = 0;
   let timerId = 0;
-
-  const setPhase = (phase) => {
-    root.dataset.phase = phase.id;
-    cycle.textContent = phase.label;
-    status.textContent = phase.status;
-  };
 
   const clearTimer = () => {
     window.clearTimeout(timerId);
     timerId = 0;
   };
 
-  const idleCopy = () => {
+  const setIdle = () => {
     delete root.dataset.phase;
-    cycle.textContent = "Ready";
-    status.textContent =
-      "Press start. Follow the circle. Come back to yourself.";
+    label.textContent = "Begin";
+    status.textContent = "Press the light. Follow it home.";
+    toggle.setAttribute("aria-pressed", "false");
   };
 
   const finish = () => {
     running = false;
     clearTimer();
     delete root.dataset.phase;
-    toggle.textContent = "Start";
+    label.textContent = "Again";
     toggle.setAttribute("aria-pressed", "false");
-    reset.hidden = true;
-    cycle.textContent = "Complete";
     status.textContent =
-      cyclesCompleted >= 3
-        ? "Three breaths. That is enough to remember you are alive."
-        : "Paused. The quiet will wait for you.";
+      cycles >= 3
+        ? "Enough. You were here."
+        : "Paused. The sky keeps watch.";
     if (orb) orb.style.transform = "";
   };
 
   const tick = () => {
     if (!running) return;
-
     const phase = PHASES[phaseIndex];
-    setPhase(phase);
+    root.dataset.phase = phase.id;
+    label.textContent = phase.label;
+    status.textContent = phase.status;
 
     timerId = window.setTimeout(() => {
       phaseIndex += 1;
       if (phaseIndex >= PHASES.length) {
         phaseIndex = 0;
-        cyclesCompleted += 1;
-        if (cyclesCompleted >= 3) {
+        cycles += 1;
+        if (cycles >= 3) {
           finish();
           return;
         }
@@ -125,61 +208,39 @@
   const start = () => {
     running = true;
     phaseIndex = 0;
-    cyclesCompleted = 0;
-    toggle.textContent = "Pause";
+    cycles = 0;
     toggle.setAttribute("aria-pressed", "true");
-    reset.hidden = false;
     tick();
   };
 
   const pause = () => {
     running = false;
     clearTimer();
-    toggle.textContent = "Resume";
     toggle.setAttribute("aria-pressed", "false");
-    cycle.textContent = "Paused";
-    status.textContent = "No rush. Resume when you are ready.";
-  };
-
-  const resume = () => {
-    running = true;
-    toggle.textContent = "Pause";
-    toggle.setAttribute("aria-pressed", "true");
-    tick();
+    label.textContent = "Resume";
+    status.textContent = "Rest. Continue when ready.";
   };
 
   toggle.addEventListener("click", () => {
-    if (!running && toggle.textContent === "Start") {
+    const pressed = toggle.getAttribute("aria-pressed") === "true";
+    if (!running && (label.textContent === "Begin" || label.textContent === "Again")) {
       start();
       return;
     }
-    if (running) {
+    if (running || pressed) {
       pause();
       return;
     }
-    resume();
+    running = true;
+    toggle.setAttribute("aria-pressed", "true");
+    tick();
   });
 
-  reset.addEventListener("click", () => {
-    running = false;
-    clearTimer();
-    phaseIndex = 0;
-    cyclesCompleted = 0;
-    toggle.textContent = "Start";
-    toggle.setAttribute("aria-pressed", "false");
-    reset.hidden = true;
-    if (orb) orb.style.transform = "";
-    idleCopy();
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && running) pause();
   });
 
-  // Respect reduced motion: keep labels, skip orb scaling transitions via CSS.
   if (reduceMotion && orb) {
     orb.style.transition = "none";
   }
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden && running) {
-      pause();
-    }
-  });
 })();
