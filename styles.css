@@ -36,6 +36,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  background: #1d1730;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -53,10 +54,11 @@ body {
   font-size: var(--body-size);
   line-height: 1.8;
   letter-spacing: 0.012em;
-  background: var(--night-deep);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
 }
 
 h1,
@@ -156,8 +158,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 75% 65% at 50% 40%, transparent 40%, rgba(10, 8, 16, 0.5) 100%),
-    linear-gradient(180deg, rgba(10, 8, 16, 0.18) 0%, transparent 18%, transparent 70%, rgba(10, 8, 16, 0.4) 100%);
+    radial-gradient(ellipse 80% 70% at 50% 42%, transparent 48%, rgba(10, 8, 16, 0.35) 100%),
+    linear-gradient(180deg, rgba(10, 8, 16, 0.12) 0%, transparent 20%, transparent 78%, rgba(10, 8, 16, 0.22) 100%);
 }
 
 .grain {
@@ -179,9 +181,10 @@ main {
   background: linear-gradient(
     180deg,
     transparent 0,
-    transparent 85svh,
-    rgba(15, 12, 22, 0.35) 110svh,
-    rgba(15, 12, 22, 0.72) 100%
+    transparent 70svh,
+    rgba(15, 12, 22, 0.18) 100svh,
+    rgba(15, 12, 22, 0.32) 160svh,
+    rgba(15, 12, 22, 0.38) 100%
   );
 }
 
@@ -229,12 +232,12 @@ main {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: min(58vh, 560px);
+  height: min(48vh, 480px);
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(15, 12, 22, 0.2) 35%,
-    rgba(15, 12, 22, 0.72) 100%
+    rgba(15, 12, 22, 0.12) 45%,
+    rgba(15, 12, 22, 0.36) 100%
   );
   pointer-events: none;
 }
@@ -622,8 +625,12 @@ main {
 
 .site-footer {
   padding: 2.15rem var(--gutter) calc(3.15rem + var(--safe-bottom));
-  border-top: 1px solid var(--line);
-  background: rgba(15, 12, 22, 0.94);
+  border-top: 1px solid rgba(247, 237, 212, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(15, 12, 22, 0.15) 0%,
+    rgba(15, 12, 22, 0.42) 100%
+  );
   display: grid;
   gap: 0.55rem;
   justify-items: center;
