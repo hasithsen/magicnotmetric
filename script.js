@@ -246,14 +246,14 @@
     {
       id: "inhale",
       label: "In",
-      status: "Draw the night in. You hold more than the ledger.",
+      status: "Draw the night in. You hold more than the measure.",
       ms: 4000,
     },
     {
       id: "hold",
       label: "Still",
       status: "Here—beneath the drone—the cosmos answers.",
-      ms: 1600,
+      ms: 3600,
     },
     {
       id: "exhale",
