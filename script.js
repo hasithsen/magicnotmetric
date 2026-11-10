@@ -231,9 +231,9 @@
   const orb = root.querySelector("[data-breath-orb]");
 
   const phases = [
-    { id: "inhale", label: "In", status: "Breathe in.", ms: 4000 },
-    { id: "hold", label: "Still", status: "Hold.", ms: 3000 },
-    { id: "exhale", label: "Out", status: "Let go.", ms: 5000 },
+    { id: "inhale", label: "In", status: "Draw the night in.", ms: 4000 },
+    { id: "hold", label: "Still", status: "Stay with it.", ms: 3000 },
+    { id: "exhale", label: "Out", status: "Give it back to the dark.", ms: 5000 },
   ];
 
   document.documentElement.style.setProperty("--in", `${phases[0].ms}ms`);
@@ -262,7 +262,7 @@
     label.textContent = "Again";
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
-      cycles >= 3 ? "That is enough." : "Whenever you like.";
+      cycles >= 3 ? "Steady. The night is with you." : "Pause here as long as you need.";
     if (orb) orb.style.transform = "";
   };
 
@@ -300,7 +300,7 @@
     clear();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest.";
+    status.textContent = "Easy. Continue when you want.";
   };
 
   toggle.addEventListener("click", () => {
