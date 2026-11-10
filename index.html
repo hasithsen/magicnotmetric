@@ -31,32 +31,23 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="world" aria-hidden="true">
-      <canvas class="sky" data-sky></canvas>
-      <div class="aurora"></div>
-      <div class="dunes">
-        <svg
-          class="dunes__svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <path
-            class="dunes__far"
-            d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z"
-          />
-          <path
-            class="dunes__near"
-            d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z"
-          />
-        </svg>
-      </div>
-      <div class="grain"></div>
+  <div class="world" aria-hidden="true">
+    <canvas class="sky" data-sky></canvas>
+    <div class="aurora"></div>
+    <div class="dunes">
+      <svg class="dunes__svg" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
+        <path class="dunes__far"
+          d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z" />
+        <path class="dunes__near"
+          d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z" />
+      </svg>
     </div>
+    <div class="grain"></div>
+  </div>
 
-    <header class="site-header">
-      <p class="site-mark">Magic not Metric</p>
-    </header>
+  <header class="site-header">
+    <p class="site-mark">Magic not Metric</p>
+  </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-brand">
@@ -221,21 +212,22 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p class="site-footer__brand">
-        Made with care by
-        <a
-          href="https://hasithsen.pages.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          >hsen</a
-        >.
-      </p>
-      <p class="site-footer__credit">
-        Theme inspired by <cite>Wind, Sand and Stars</cite>
-      </p>
-    </footer>
+  <footer class="site-footer">
+    <p class="site-footer__brand">
+      Made with care by
+      <a href="https://hasithsen.pages.dev" target="_blank" rel="noopener noreferrer">hsen</a>.
+    </p>
+    <p class="site-footer__credit">
+      Theme inspired by <cite><a href="https://en.wikipedia.org/wiki/Wind,_Sand_and_Stars" target="_blank"
+          rel="noopener noreferrer">Wind, Sand and Stars</a></cite>
+    </p>
+    <p class="site-footer__brand">
+      <a href="https://github.com/hasithsen/magicnotmetric" target="_blank" rel="noopener noreferrer">View the source on
+        GitHub</a>
+    </p>
+  </footer>
 
-    <script src="script.js" defer></script>
-  </body>
+  <script src="script.js" defer></script>
+</body>
+
 </html>
