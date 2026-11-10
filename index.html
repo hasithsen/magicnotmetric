@@ -8,241 +8,139 @@
     />
     <meta
       name="description"
-      content="Magic not Metric — what does not change remains. The cosmos waits—within."
+      content="Magic not Metric — wind, sand, and stars."
     />
-    <meta name="theme-color" content="#100d18" />
+    <meta name="theme-color" content="#12101a" />
     <meta property="og:title" content="Magic not Metric" />
     <meta
       property="og:description"
-      content="Beneath every measure, the sky. The cosmos remains—within."
+      content="Above the dunes, the stars do not keep score."
     />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
     <title>Magic not Metric</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23100d18'/%3E%3Ccircle cx='16' cy='14' r='2' fill='%23f3e6c8'/%3E%3Cpath d='M0 24 Q8 20 16 24 T32 24 V32 H0Z' fill='%23b8955f'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312101a'/%3E%3Ccircle cx='16' cy='13' r='1.6' fill='%23f2e6c9'/%3E%3Cpath d='M0 23 Q8 19 16 23 T32 23 V32 H0Z' fill='%23a87d4f'/%3E%3C/svg%3E"
     />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <div class="world" aria-hidden="true">
-      <canvas class="sky" data-sky></canvas>
-      <div class="aurora"></div>
+    <div class="sky" aria-hidden="true">
+      <canvas data-stars></canvas>
+      <div class="haze"></div>
       <div class="dunes">
-        <svg
-          class="dunes__svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-          focusable="false"
-        >
-          <defs>
-            <linearGradient id="duneFar" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#7a5a42" />
-              <stop offset="100%" stop-color="#4a3528" />
-            </linearGradient>
-            <linearGradient id="duneNear" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#4a3428" />
-              <stop offset="100%" stop-color="#2a1c16" />
-            </linearGradient>
-          </defs>
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
           <path
             class="dunes__far"
-            fill="url(#duneFar)"
-            d="M0,220 C180,160 320,250 480,200 C640,150 780,230 960,180 C1120,140 1280,200 1440,170 L1440,320 L0,320 Z"
+            d="M0,210 C200,150 340,240 520,190 C720,135 860,230 1060,175 C1220,135 1340,190 1440,165 L1440,320 L0,320 Z"
           />
           <path
             class="dunes__near"
-            fill="url(#duneNear)"
-            d="M0,260 C220,210 380,280 560,240 C740,200 900,270 1100,230 C1260,200 1360,250 1440,235 L1440,320 L0,320 Z"
+            d="M0,250 C240,205 400,275 580,235 C780,190 940,270 1140,230 C1280,200 1380,245 1440,230 L1440,320 L0,320 Z"
           />
         </svg>
       </div>
-      <div class="vignette"></div>
-      <div class="grain"></div>
     </div>
 
-    <header class="site-header">
-      <p class="site-mark">Magic <em>not</em> Metric</p>
+    <header class="top">
+      <p class="mark">Magic <em>not</em> Metric</p>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-brand">
-        <div class="hero__content">
-          <h1 id="hero-brand" class="hero__brand reveal">
-            Magic <em>not</em> Metric
-          </h1>
-          <p class="hero__line reveal" style="--d: 1">
-            What does not change remains.
-          </p>
-          <p class="hero__support reveal" style="--d: 2">
-            The sky does not hurry. Beneath every measure, the same quiet holds.
-          </p>
-          <a class="hero__cta reveal" style="--d: 3" href="#engage">
-            Descend
-          </a>
-        </div>
+      <section class="hero">
+        <h1 class="brand reveal">Magic <em>not</em> Metric</h1>
+        <p class="lead reveal" style="--d: 1">
+          Above the dunes, the stars do not keep score.
+        </p>
+        <a class="go reveal" style="--d: 2" href="#night">Continue</a>
       </section>
 
-      <section id="engage" class="section" aria-labelledby="engage-title">
-        <div class="section__inner">
-          <h2 id="engage-title" class="section__title reveal">
-            The measure moves. The ground does not.
-          </h2>
-          <div class="section__copy">
-            <p class="reveal" style="--d: 1">
-              Numbers rise and fall like weather. Useful, passing. Under them
-              something older keeps its shape—untouched by the tally.
-            </p>
-            <p class="reveal" style="--d: 2">
-              Wonder was never a distraction. Silence was never empty. What
-              steadies you was here before the count began, and will be here
-              when the sheet is full.
-            </p>
-            <p class="reveal" style="--d: 3">
-              You need not discard the work. Only remember what the work rests
-              upon: breath, sky, the still place that does not report itself.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--laws" aria-labelledby="laws-title">
-        <div class="section__inner">
-          <h2 id="laws-title" class="section__title reveal">
-            What does not change.
-          </h2>
-
-          <ol class="laws">
-            <li class="laws__item reveal" style="--d: 1">
-              <span class="laws__index" aria-hidden="true">01</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">The sky holds.</h3>
-                <p class="laws__text">
-                  Charts climb and clear. Night does neither. Above every
-                  season of striving, the same vastness waits—unchanged, and
-                  enough.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 2">
-              <span class="laws__index" aria-hidden="true">02</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">The breath returns.</h3>
-                <p class="laws__text">
-                  In, out—before names, after noise. Presence is not an
-                  achievement. It is the rhythm you already are, when you notice.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 3">
-              <span class="laws__index" aria-hidden="true">03</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Wonder stays.</h3>
-                <p class="laws__text">
-                  Awe does not expire when you look away. It waits in the gap
-                  between tasks, patient as starlight, asking nothing but your
-                  return.
-                </p>
-              </div>
-            </li>
-            <li class="laws__item reveal" style="--d: 4">
-              <span class="laws__index" aria-hidden="true">04</span>
-              <div class="laws__content">
-                <h3 class="laws__heading">Stillness is home.</h3>
-                <p class="laws__text">
-                  The quiet beneath motion was never lost—only overlooked. Step
-                  out of the current and it is already underfoot.
-                </p>
-              </div>
-            </li>
-          </ol>
-
-          <p class="section__epigraph reveal" style="--d: 5">
-            The cosmos remains—within.
+      <section id="night" class="passage">
+        <div class="passage__inner">
+          <p class="reveal">
+            Night falls over sand the way silence falls over a room. First the
+            heat lets go. Then the sky opens.
+          </p>
+          <p class="reveal" style="--d: 1">
+            You fly, or you walk, or you simply sit. The wind keeps its own
+            time. The stars do not ask what you produced today.
+          </p>
+          <p class="reveal" style="--d: 2">
+            Metrics have their place on the ground. Up here—or out here—another
+            order holds. Wind. Sand. Stars. Enough.
           </p>
         </div>
       </section>
 
-      <section class="section section--rite" aria-labelledby="rite-title">
-        <div class="section__inner section__inner--center">
-          <h2 id="rite-title" class="section__title reveal">
-            Three breaths.
-          </h2>
-          <p class="section__lede reveal" style="--d: 1">
-            Not to improve. Only to meet what was always here.
+      <section class="passage passage--narrow">
+        <div class="passage__inner">
+          <h2 class="heading reveal">What stays</h2>
+          <ul class="stays">
+            <li class="reveal" style="--d: 1">
+              <strong>Wind</strong>
+              <span>It arrives without announcement and leaves the same way.</span>
+            </li>
+            <li class="reveal" style="--d: 2">
+              <strong>Sand</strong>
+              <span>It keeps the shape of every footstep for a little while, then none.</span>
+            </li>
+            <li class="reveal" style="--d: 3">
+              <strong>Stars</strong>
+              <span>They were lit before the first ledger, and they will outlast the last.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="breathe" aria-labelledby="breathe-title">
+        <div class="breathe__inner">
+          <h2 id="breathe-title" class="heading reveal">A little stillness</h2>
+          <p class="breathe__note reveal" style="--d: 1">
+            Three breaths. No goal but the next one.
           </p>
 
-          <div
-            class="star-rite reveal"
-            style="--d: 2"
-            data-breath
-            role="region"
-            aria-labelledby="rite-title"
-          >
+          <div class="orb reveal" style="--d: 2" data-breath>
             <button
               type="button"
-              class="star-rite__btn"
+              class="orb__btn"
               data-breath-toggle
               aria-pressed="false"
-              aria-describedby="rite-status"
+              aria-describedby="breath-status"
             >
-              <span class="star-rite__glow" aria-hidden="true"></span>
-              <span
-                class="star-rite__core"
-                data-breath-orb
-                aria-hidden="true"
-              ></span>
-              <span class="star-rite__label" data-breath-label>Begin</span>
+              <span class="orb__ring" aria-hidden="true"></span>
+              <span class="orb__core" data-breath-orb aria-hidden="true"></span>
+              <span class="orb__label" data-breath-label>Begin</span>
             </button>
-            <p
-              id="rite-status"
-              class="star-rite__status"
-              data-breath-status
-            >
-              Touch the light. Nothing to force.
+            <p id="breath-status" class="orb__status" data-breath-status>
+              When you are ready.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section section--close" aria-labelledby="close-title">
-        <div class="section__inner section__inner--center">
-          <h2
-            id="close-title"
-            class="section__title section__title--close reveal"
-          >
-            The sky was never outside you.
-          </h2>
-          <p class="section__close-text reveal" style="--d: 1">
-            Let the measures come and go. Under them, a quieter vastness
-            holds—untallied, unbroken, already yours. Magic not metric. The
-            cosmos remains—within.
-          </p>
-        </div>
+      <section class="close">
+        <p class="close__line reveal">The night is wide enough.</p>
+        <p class="close__soft reveal" style="--d: 1">
+          Magic not metric. The rest can wait until morning.
+        </p>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p class="site-footer__brand">
+    <footer class="foot">
+      <p>
         Made with care by
-        <a
-          href="https://hasithsen.pages.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          >hsen</a
-        >.
+        <a href="https://hasithsen.pages.dev" target="_blank" rel="noopener noreferrer">hsen</a>
       </p>
-      <p class="site-footer__credit">
-        Theme inspired by
+      <p>
+        After
         <cite
           ><a
             href="https://en.wikipedia.org/wiki/Wind,_Sand_and_Stars"
@@ -252,12 +150,12 @@
           ></cite
         >
       </p>
-      <p class="site-footer__brand">
+      <p>
         <a
           href="https://github.com/hasithsen/magicnotmetric"
           target="_blank"
           rel="noopener noreferrer"
-          >View the source on GitHub</a
+          >Source</a
         >
       </p>
     </footer>
