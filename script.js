@@ -246,19 +246,19 @@
     {
       id: "inhale",
       label: "In",
-      status: "Draw the night in. Leave the ledger outside.",
+      status: "Draw the night in. You hold more than the ledger.",
       ms: 4000,
     },
     {
       id: "hold",
       label: "Still",
-      status: "Here—beneath the drone—the cosmos waits.",
+      status: "Here—beneath the drone—the cosmos answers.",
       ms: 1600,
     },
     {
       id: "exhale",
       label: "Out",
-      status: "Release the numbness. Keep the wonder.",
+      status: "Keep the wonder. Let the rest fall away.",
       ms: 5000,
     },
   ];
@@ -286,8 +286,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "Alive again. The metrics can wait."
-        : "Paused. The sky inside you is patient.";
+        ? "Still alive. The metrics can wait."
+        : "Paused. The sky inside you holds.";
     if (orb) orb.style.transform = "";
   };
 
@@ -325,7 +325,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest. Numbness loosens when you notice it.";
+    status.textContent = "Rest. You choose when to return.";
   };
 
   toggle.addEventListener("click", () => {
