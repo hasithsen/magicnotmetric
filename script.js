@@ -245,20 +245,20 @@
   const PHASES = [
     {
       id: "inhale",
-      label: "See",
-      status: "Clear the mind. Name what matters.",
+      label: "In",
+      status: "Draw the night in. Leave the ledger outside.",
       ms: 4000,
     },
     {
       id: "hold",
-      label: "Hold",
-      status: "Steady on duty—people, craft, vow.",
+      label: "Still",
+      status: "Here—beneath the drone—the cosmos waits.",
       ms: 1600,
     },
     {
       id: "exhale",
-      label: "Move",
-      status: "Carry clarity into the next decisive act.",
+      label: "Out",
+      status: "Release the numbness. Keep the wonder.",
       ms: 5000,
     },
   ];
@@ -286,8 +286,8 @@
     toggle.setAttribute("aria-pressed", "false");
     status.textContent =
       cycles >= 3
-        ? "Centered. Return to the field and make it count."
-        : "Paused. Resume when you are ready to advance.";
+        ? "Alive again. The metrics can wait."
+        : "Paused. The sky inside you is patient.";
     if (orb) orb.style.transform = "";
   };
 
@@ -325,7 +325,7 @@
     clearTimer();
     toggle.setAttribute("aria-pressed", "false");
     label.textContent = "Resume";
-    status.textContent = "Rest briefly. Purpose keeps the path lit.";
+    status.textContent = "Rest. Numbness loosens when you notice it.";
   };
 
   toggle.addEventListener("click", () => {
